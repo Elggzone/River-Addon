@@ -1,0 +1,49 @@
+= Version history =
+
+2012.07.12:
+
+- Updated to Elgg 1.8.8
+- Added: friends module title now link to friends page
+- Added: friends online module
+- Added: friends online setting
+- Improved: plugin settings page
+- Changed: order of settings
+
+2012.06.15:
+
+- Updated to Elgg 1.8.5
+- Added: changelog, river_addon/CHANGES.txt
+- Added: slide down effect to wire updates
+- Moved: wire view call to start.php
+- Deleted: one_sidebar.php, two_sidebar.php
+
+2012.03.01:
+
+- Added: Owner Menu
+- Added: page Activity filter menu tab order
+- Added: filter menu settings
+- Fixed: wire character counter reset 
+
+2012.02.16:
+
+- Added: ajaxed updates to the river from the Wire form on the page Activity
+
+2012.02.04:
+
+- Updated to Elgg 1.8.3
+- Added: three column layout
+- Added: layout setting
+- Added: page/elements/demo_element.php
+
+2011.12.12:
+
+- Fixed: logged out error  
+
+2011.12.09:
+
+- Added: the wire to activity page
+- Added: admin setting, show the wire
+
+2011.12.08:
+
+- Initial release for Elgg 1.8.1 
