@@ -22,7 +22,8 @@ function river_addon_init() {
 		elgg_register_action("river_addon/add", "$action_path/add.php");		
 		elgg_extend_view('js/elgg', 'js/update');
 	}
-
+	elgg_extend_view('js/elgg', 'js/river');
+	
 	elgg_extend_view('css/elgg', 'river_addon/css');
 	elgg_extend_view('css/admin', 'river_addon/admin');	
 
@@ -76,7 +77,7 @@ function river_addon_river_page_handler($page) {
 	if ($tab_order == 'friend_order') {
 		$param = 'friends';
 	} else if ($tab_order == 'mine_order'){
-		$param = 'mine';	
+		$param = 'mine';
 	} else {
 		$param = 'all';
 	}
@@ -95,7 +96,7 @@ function river_addon_river_page_handler($page) {
 	$entity_type = '';
 	$entity_subtype = '';
 
-	require_once("{$CONFIG->path}pages/river.php");
+	require_once("{$CONFIG->path}mod/river_addon/pages/river.php");
 	return true;
 }
 
