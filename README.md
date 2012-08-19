@@ -14,3 +14,5 @@ FEATURES:
 - User settings: How many groups to display
 - Language support
 - Version Elgg 1.8
+
+**Note!** This directory must be named 'river_addon' in your Elgg mod folder.

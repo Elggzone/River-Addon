@@ -1,5 +1,10 @@
 = Version history =
 
+2012.08.19:
+
+- Added: id element to manifest
+- Added: real-time (ajaxed) updates to the river
+
 2012.07.12:
 
 - Updated to Elgg 1.8.8
