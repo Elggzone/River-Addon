@@ -12,10 +12,17 @@ $title = elgg_view('output/url', array(
 
 $options = array(
 	'type' => 'group', 
-	'full_view' => false,
+	'full_view' => FALSE,
 	'pagination' => FALSE,
 	'limit' => 4,
 );
-$content = elgg_list_entities($options);
+$content = elgg_get_entities($options);
 
-echo elgg_view_module('aside', $title, $content);
+if ($content) {
+	elgg_push_context('widgets');
+	$items = '';
+	foreach ($content as $group) {
+		$items .= elgg_view_entity($group);
+	}
+}
+echo elgg_view_module('aside', $title, $items);

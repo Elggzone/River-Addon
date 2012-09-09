@@ -1,5 +1,10 @@
 = Version history =
 
+2012.09.09:
+
+- Fixed: Google Chrome bug
+- Fixed: Tagcloud condition
+
 2012.09.03:
 
 - Added: Friends and group membership count

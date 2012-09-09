@@ -29,13 +29,12 @@
 /* ***************************************
 	MISC
 *****************************************/
+.elgg-sidebar .elgg-module {
+	float: left;
+}
 .elgg-sidebar #profile-owner-block { 
     margin-bottom: 10px; 
 	padding-left: 5px; 
-}
-.elgg-sidebar .elgg-module-aside .elgg-menu,
-.elgg-sidebar-alt .elgg-module-aside .elgg-menu { 
-    display: none;
 }
 .elgg-sidebar-alt #profile-owner-block {
 	background: none; 

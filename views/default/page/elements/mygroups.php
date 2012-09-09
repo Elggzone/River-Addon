@@ -7,6 +7,7 @@ $title = elgg_echo('groups:widget:membership');
 
 $group_count = elgg_get_plugin_user_setting('group_count', $user_guid, 'river_addon');
 
+elgg_push_context('widgets');
 $options = array(
 	'type' => 'group',
 	'relationship' => 'member',
@@ -17,6 +18,7 @@ $options = array(
 	'count' => TRUE
 );
 $content = elgg_list_entities_from_relationship($options);
+elgg_pop_context();
 
 $number = elgg_get_entities_from_relationship($options);	
 $title .= '<span> ' . $number . '</span>';
