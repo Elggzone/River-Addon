@@ -24,7 +24,7 @@
 	margin: 0; 
     padding: 0; 
     display: list-item;
-	width:180px;
+	width: auto;
 }
 /* ***************************************
 	MISC
@@ -33,8 +33,18 @@
     margin-bottom: 10px; 
 	padding-left: 5px; 
 }
-.elgg-sidebar .elgg-module-aside .elgg-menu { 
+.elgg-sidebar .elgg-module-aside .elgg-menu,
+.elgg-sidebar-alt .elgg-module-aside .elgg-menu { 
     display: none;
+}
+.elgg-sidebar-alt #profile-owner-block {
+	background: none; 
+    margin-bottom: 15px;
+	padding: 0; 
+}
+.elgg-sidebar-alt .elgg-avatar-large > a > img {
+    width: 160px;
+    height: auto;
 }
 .elgg-module-thewire {
 	margin-top: 10px; 

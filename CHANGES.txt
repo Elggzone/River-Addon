@@ -1,5 +1,19 @@
 = Version history =
 
+2012.09.03:
+
+- Added: Friends and group membership count
+- Added: Custom content as a setting option
+- Fixed: bug in show_friends
+
+2012.09.02:
+
+- Added: Latest Members module
+- Added: Latest Groups module
+- Added: Sidebar setting - choose left or right sidebar
+- Added: Link to Plugin settings - admins only
+- Fixed: Ajax riverlist bug
+
 2012.08.19:
 
 - Added: id element to manifest

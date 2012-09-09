@@ -33,41 +33,54 @@ function river_addon_init() {
 	elgg_unregister_page_handler('activity', 'elgg_river_page_handler');
 	elgg_register_page_handler('activity', 'river_addon_river_page_handler');
 
-	// added to show sidebar_alt content
-	elgg_extend_view('page/elements/sidebar_alt', 'page/elements/demo_element');
-		
+	$plugin = elgg_get_plugin_from_id('river_addon');
+	
 	if (elgg_is_logged_in()	&& elgg_get_context() == 'activity'){
 	
-		if (elgg_get_plugin_setting('show_thewire', 'river_addon') == 'yes'){	
+		if ($plugin->show_thewire == 'yes'){
 			elgg_extend_view('page/layouts/content/header', 'page/elements/riverwire', 1);
-		}	
-		if (elgg_get_plugin_setting('show_icon', 'river_addon') == 'yes'){	
-			elgg_extend_view('page/elements/sidebar', 'page/elements/rivericon', '501');
 		}
-		if (elgg_get_plugin_setting('show_menu', 'river_addon') == 'yes'){		
-			elgg_extend_view('page/elements/sidebar', 'page/elements/ownermenu', '502');
+		if ($plugin->show_icon != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_icon, 'page/elements/rivericon', '501');
+		}
+		if ($plugin->show_menu != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_menu, 'page/elements/ownermenu', '502');
+		}
+		if ($plugin->show_latest_members != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_latest_members, 'page/elements/latest_members', '503');
 		}		
-		if (elgg_get_plugin_setting('show_friends', 'river_addon') == 'yes'){	
-			elgg_extend_view('page/elements/sidebar', 'page/elements/friends', '503');
+		if ($plugin->show_friends != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_friends , 'page/elements/friends', '504');
 		}
-		if (elgg_get_plugin_setting('show_friends_online', 'river_addon') == 'yes') {		
-			elgg_extend_view('page/elements/sidebar', 'page/elements/friendsonline', '504');  
+		if ($plugin->show_friends_online != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_friends_online, 'page/elements/friendsonline', '505');  
     	}
-		if (elgg_get_plugin_setting('show_groups', 'river_addon') == 'yes'){	
-			elgg_extend_view('page/elements/sidebar', 'page/elements/mygroups', '505');
+		if ($plugin->show_latest_groups != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_latest_groups, 'page/elements/latest_groups', '506');
+		}
+		if ($plugin->show_groups != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_groups, 'page/elements/mygroups', '507');
+		}
+		if ($plugin->show_custom != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_custom, 'page/elements/custom_module', 508);
 		}		
+	}	
+	if (elgg_get_context() == 'activity' && $plugin->show_ticker != 'no'){
+		elgg_extend_view('page/elements/' . $plugin->show_ticker, 'page/elements/sidebarticker', '509');
 	}
-	
-	if (elgg_get_context() == 'activity' && elgg_get_plugin_setting('show_ticker', 'river_addon') == 'yes'){	
-		elgg_extend_view('page/elements/sidebar', 'page/elements/sidebarticker', '506');
+	if ($plugin->show_tagcloud != 'no'){
+		elgg_extend_view('page/elements/' . $plugin->show_tagcloud, 'page/elements/tagcloud_block', '510');	
 	}
-	if (elgg_get_plugin_setting('show_tagcloud', 'river_addon') == 'yes'){
-		if (elgg_get_plugin_setting('columns', 'river_addon') == 'yes'){
-			elgg_extend_view('page/elements/sidebar_alt', 'page/elements/tagcloud_block', '507');
-		} else {
-			elgg_extend_view('page/elements/sidebar', 'page/elements/tagcloud_block', '508');
-		}		
-	}					
+	//elgg_extend_view('page/elements/sidebar', 'donation/donation', 600);
+	if (elgg_is_admin_logged_in()) {
+		elgg_register_menu_item('extras', array(
+			'name' => 'themeadministration',
+			'href' => 'admin/plugin_settings/river_addon',
+			'title' => elgg_echo('river_addon:tooltip:settings'),
+			'text' => elgg_view_icon('settings-alt'),
+			'priority' => 1000,
+		));
+	}
 }
 
 function river_addon_river_page_handler($page) {

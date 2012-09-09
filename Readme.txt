@@ -1,3 +1,5 @@
+= Credits =
+
 Thanks to Dhrup for kind advice, as always.
 Dhrup Chand (embrache) - http://embrache.com/
 2012.03.01

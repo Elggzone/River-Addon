@@ -8,31 +8,40 @@
 		$vars['entity']->columns = 'no';
 	}
 	if (!isset($vars['entity']->show_icon)) {
-		$vars['entity']->show_icon = 'yes';
+		$vars['entity']->show_icon = 'sidebar';
 	}
 	if (!isset($vars['entity']->show_menu)) {
-		$vars['entity']->show_menu = 'yes';
+		$vars['entity']->show_menu = 'sidebar';
+	}
+	if (!isset($vars['entity']->show_latest_members)) {
+		$vars['entity']->show_latest_members = 'sidebar_alt';
 	}
 	if (!isset($vars['entity']->tab_order)) {
 		$vars['entity']->tab_order = 'default';
 	}
 	if (!isset($vars['entity']->show_friends)) {
-		$vars['entity']->show_friends = 'yes';
+		$vars['entity']->show_friends = 'sidebar_alt';
 	}
 	if (!isset($vars['entity']->show_friends_online)) {
-		$vars['entity']->show_friends_online = 'yes';
+		$vars['entity']->show_friends_online = 'sidebar_alt';
 	}
 	if (!isset($vars['entity']->num_friends)) {
 		$vars['entity']->num_friends = 12;
 	}
 	if (!isset($vars['entity']->show_ticker)) {
-		$vars['entity']->show_ticker = 'no';
+		$vars['entity']->show_ticker = 'sidebar';
 	}
 	if (!isset($vars['entity']->tweetcount)) {
 		$vars['entity']->tweetcount = '4';
 	}
+	if (!isset($vars['entity']->show_latest_groups)) {
+		$vars['entity']->show_latest_groups = 'sidebar';
+	}
+	if (!isset($vars['entity']->show_custom)) {
+		$vars['entity']->show_custom = 'sidebar_alt';
+	}
 	if (!isset($vars['entity']->show_groups)) {
-		$vars['entity']->show_groups = 'no';
+		$vars['entity']->show_groups = 'sidebar';
 	}
 	if (!isset($vars['entity']->show_tagcloud)) {
 		$vars['entity']->show_tagcloud = 'no';
@@ -91,7 +100,8 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_icon]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_icon,
 ));
@@ -104,9 +114,24 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_menu]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_menu,
+));
+echo '</div>';
+
+echo '<div>';
+echo elgg_echo('river_addon:label:latest:members');
+echo ' ';
+echo elgg_view('input/dropdown', array(
+	'name' => 'params[show_latest_members]',
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
+	),
+	'value' => $vars['entity']->show_latest_members,
 ));
 echo '</div>';
 
@@ -117,7 +142,8 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_friends]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_friends,
 ));
@@ -140,7 +166,8 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_friends_online]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_friends_online,
 ));
@@ -153,7 +180,8 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_ticker]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_ticker,
 ));
@@ -173,9 +201,24 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_groups]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_groups,
+));
+echo '</div>';
+
+echo '<div>';
+echo elgg_echo('river_addon:label:latest:groups');
+echo ' ';
+echo elgg_view('input/dropdown', array(
+	'name' => 'params[show_latest_groups]',
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
+	),
+	'value' => $vars['entity']->show_latest_groups,
 ));
 echo '</div>';
 
@@ -186,9 +229,24 @@ echo elgg_view('input/dropdown', array(
 	'name' => 'params[show_tagcloud]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
-		'yes' => elgg_echo('option:yes')
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $vars['entity']->show_tagcloud,
+));
+echo '</div>';
+
+echo '<div>';
+echo elgg_echo('river_addon:label:custom');
+echo ' ';
+echo elgg_view('input/dropdown', array(
+	'name' => 'params[show_custom]',
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
+	),
+	'value' => $vars['entity']->show_custom,
 ));
 echo '</div>';
 
