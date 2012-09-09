@@ -17,8 +17,9 @@ function river_addon_init() {
 
 	$action_path = dirname(__FILE__) . '/actions';
 
-	if (elgg_get_plugin_setting('show_thewire', 'river_addon') == 'yes'){
-		// actions		
+	$plugin = elgg_get_plugin_from_id('river_addon');
+	
+	if ($plugin->show_thewire == 'yes'){
 		elgg_register_action("river_addon/add", "$action_path/add.php");		
 		elgg_extend_view('js/elgg', 'js/update');
 	}
@@ -33,8 +34,6 @@ function river_addon_init() {
 	elgg_unregister_page_handler('activity', 'elgg_river_page_handler');
 	elgg_register_page_handler('activity', 'river_addon_river_page_handler');
 
-	$plugin = elgg_get_plugin_from_id('river_addon');
-	
 	if (elgg_is_logged_in()	&& elgg_get_context() == 'activity'){
 	
 		if ($plugin->show_thewire == 'yes'){
@@ -68,10 +67,10 @@ function river_addon_init() {
 	if (elgg_get_context() == 'activity' && $plugin->show_ticker != 'no'){
 		elgg_extend_view('page/elements/' . $plugin->show_ticker, 'page/elements/sidebarticker', '509');
 	}
-	if ($plugin->show_tagcloud != 'no'){
+	if (elgg_get_context() == 'activity' && $plugin->show_tagcloud != 'no'){
 		elgg_extend_view('page/elements/' . $plugin->show_tagcloud, 'page/elements/tagcloud_block', '510');	
 	}
-	//elgg_extend_view('page/elements/sidebar', 'donation/donation', 600);
+
 	if (elgg_is_admin_logged_in()) {
 		elgg_register_menu_item('extras', array(
 			'name' => 'themeadministration',
