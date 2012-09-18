@@ -28,6 +28,6 @@ if ($friends) {
 			$content = $html;
 		}
 	}
-	$title .= '<span> ' . $count . '</span>';
+	$title .= '<span> (' . $count . ')</span>';
 	echo elgg_view_module('featured', $title, $content);
 }

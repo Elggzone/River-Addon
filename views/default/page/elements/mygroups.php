@@ -21,7 +21,7 @@ $content = elgg_list_entities_from_relationship($options);
 elgg_pop_context();
 
 $number = elgg_get_entities_from_relationship($options);	
-$title .= '<span> ' . $number . '</span>';
+$title .= '<span> (' . $number . ')</span>';
 
 if ($number < 1) {
 	$url = "groups/all";

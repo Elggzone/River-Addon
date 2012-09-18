@@ -1,6 +1,6 @@
 = Version history =
 
-2012.09.09:
+2012.09.18:
 
 - Fixed: Google Chrome bug
 - Fixed: Tagcloud condition
