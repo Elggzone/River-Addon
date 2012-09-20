@@ -30,7 +30,7 @@
 	MISC
 *****************************************/
 .elgg-sidebar .elgg-module {
-	float: left;
+	display: inline-block;
 }
 .elgg-sidebar #profile-owner-block { 
     margin-bottom: 10px; 
