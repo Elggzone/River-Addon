@@ -16,7 +16,7 @@
  * @uses $vars['item_class']  Additional CSS class for the <li> elements
  * $uses $vars['data-options'] An array of options to be passed to elgg_view_entity_list()
  */
-
+ 
 $items = $vars['items'];
 $offset = elgg_extract('offset', $vars);
 $limit = elgg_extract('limit', $vars);
@@ -26,8 +26,11 @@ $pagination = elgg_extract('pagination', $vars, true);
 $offset_key = elgg_extract('offset_key', $vars, 'offset');
 $position = elgg_extract('position', $vars, 'after');
 $list_class = 'elgg-list';
-$list_id = elgg_extract('list_id', $vars, null);
 $data_options = elgg_extract('data-options', $vars, false);
+
+if ($data_options) {
+    $list_class = "$list_class elgg-sync";
+}
 
 if (isset($vars['list_class'])) {
     $list_class = "$list_class {$vars['list_class']}";
@@ -42,34 +45,17 @@ $html = "";
 $nav = "";
 
 if ($pagination && $count) {
-    $ajaxify = false;
-	if ($data_options) {
-		$ajaxify = true;
-	}
-	$nav .= elgg_view('navigation/pagination', array(
+    $nav .= elgg_view('navigation/pagination', array(
 		'base_url' => $base_url,
         'offset' => $offset,
         'count' => $count,
         'limit' => $limit,
         'offset_key' => $offset_key,
-		'ajaxify' => $ajaxify,
-		'list_id' => $list_id
     ));
 }
 
-$before = elgg_view('page/components/list/prepend', $vars);
-$after = elgg_view('page/components/list/append', $vars);
-
-$list_params = array('items', 'offset', 'limit', 'count', 'base_url', 'pagination', 'offset_key', 'position', 'list_class', 'list_id', 'data-options');
-foreach ($list_params as $list_param) {
-    if (isset($vars[$list_param])) {
-        unset($vars[$list_param]);
-    }
-}
-
-$html .= $before;
-
 if (is_array($items) && count($items) > 0) {
+	$html .= "<ul class=\"$list_class\" data-options=\"$data_options\">";
     foreach ($items as $item) {
         if (elgg_instanceof($item)) {
             $id = "elgg-{$item->getType()}-{$item->getGUID()}";
@@ -82,15 +68,13 @@ if (is_array($items) && count($items) > 0) {
         $html .= elgg_view_list_item($item, $vars);
         $html .= '</li>';
     }
+	$html .= '</ul>';
 }
 
-$html .= $after;
-
-$html = "<ul id=\"$list_id\" class=\"$list_class\" data-options=\"$data_options\">$html</ul>";
-
-if ($position == 'before' || $position == 'both' && !$ajaxify) {
+if ($position == 'before' || $position == 'both') {
     $html = $nav . $html;
 }
+
 if ($position == 'after' || $position == 'both') {
     $html .= $nav;
 }

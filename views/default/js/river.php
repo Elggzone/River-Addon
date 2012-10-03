@@ -4,7 +4,7 @@ elgg.provide('elgg.river');
 
 elgg.river.init = function() {
 
-	var riverList = $('#elgg-river-main');
+	var riverList = $('.elgg-list-river');
 	var time = 20000;
 	if (!window.rivertimer) {
 		window.rivertimer = true;
