@@ -52,6 +52,11 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_latest_members
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[num_members]',
+	'options' => array(7, 14, 21, 28, 35, 42, 49, 56, 63, 70),
+	'value' => $plugin->num_members
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_latest_members') . "</div>
 </li>",
@@ -60,7 +65,8 @@ $items = array (
 <div class='elgg-handle'>
 <span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span>
 <span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span></div>"
- . elgg_view("input/dropdown", array(
+
+. elgg_view("input/dropdown", array(
 	'name' => 'params[show_friends]',
 	'options_values' => array(
 		'no' => elgg_echo('option:no'),
@@ -68,7 +74,12 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_friends
-)) .  
+)) 
+. elgg_view("input/dropdown", array(
+	'name' => 'params[num_friends]',
+	'options' => array(7, 14, 21, 28, 35, 42, 49, 56, 63, 70),
+	'value' => $plugin->num_friends
+)) . 	   
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_friends') . "</div>
 </li>",
 
@@ -100,7 +111,12 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_ticker
-)) .  
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[tweetcount]',
+	'options' => array(2, 3, 4, 5, 6, 7, 8),
+	'value' => $plugin->tweetcount
+)) .
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_ticker') . "</div>
 </li>",
 
@@ -132,6 +148,11 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_latest_groups
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[num_groups]',
+	'options' => array(1, 2, 3, 4, 5, 6),
+	'value' => $plugin->num_groups
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_latest_groups') . "</div>
 </li>",
@@ -166,6 +187,27 @@ $items = array (
 	'value' => $plugin->show_custom
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_custom') . "</div>
+</li>",
+
+"<li id=\"10\" class=\"$plugin->show_albums\">
+<div class='elgg-handle'>
+<span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span>
+<span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span></div>"
+ . elgg_view("input/dropdown", array(
+	'name' => 'params[show_albums]',
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
+	),
+	'value' => $plugin->show_albums
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[num_albums]',
+	'options' => array(1, 2, 3, 4, 5, 6),
+	'value' => $plugin->num_albums
+)) .  
+"<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_albums') . "</div>
 </li>",
 );
 

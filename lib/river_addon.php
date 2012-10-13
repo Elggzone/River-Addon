@@ -15,7 +15,8 @@ function river_addon_get_modules() {
 		'show_groups_order',
 		'show_latest_groups_order',
 		'show_tagcloud_order',
-		'show_custom_order'
+		'show_custom_order',
+		'show_albums_order'
 	);
 	$modules = array();
 		

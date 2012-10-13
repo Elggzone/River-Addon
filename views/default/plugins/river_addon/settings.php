@@ -52,8 +52,12 @@
 	if (!isset($vars['entity']->show_tagcloud)) {
 		$vars['entity']->show_tagcloud = 'sidebar_alt';
 	}
-	if (!isset($plugin->neworder) || empty($plugin->neworder)) {
-		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,0';
+	if (!isset($vars['entity']->show_albums)) {
+		$vars['entity']->show_albums = 'no';
+	}
+	$new = 10;
+	if (!isset($plugin->neworder) || empty($plugin->neworder) || !preg_match('/(^|,)'. $new .'($|,)/', $plugin->neworder)) {
+		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,10,0';
 	}
 
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:general') . "</div>";
@@ -109,18 +113,3 @@ echo '<div class="elgg-modules">';
 echo "</div>";
 
 echo "<div>" . elgg_echo('river_addon:info:groups') . "</div>";
-
-echo '<div>';
-echo elgg_echo('river_addon:label:num');
-$params = array(
-	'name' => 'params[num_friends]',
-	'value' => $vars['entity']->num_friends,
-	'options' => array(6, 12, 18, 24, 30, 36, 42, 48, 54, 60),
-);
-echo elgg_view('input/dropdown', $params);
-echo '</div>';
-
-echo '<div>';
-echo elgg_echo('river_addon:label:count');
-echo elgg_view('input/text',array('name' => 'params[tweetcount]','value' => $vars['entity']->tweetcount));
-echo '</div>';

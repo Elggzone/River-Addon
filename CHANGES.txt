@@ -1,5 +1,15 @@
 = Version history =
 
+2012.10.12:
+
+- Added: Photo Album module
+- Added: Number setting for latest members and latest groups
+
+2012.10.10:
+
+- Fixed: Pagination issues
+- Removed: Friends online autorefresh
+
 2012.10.03:
 
 - Added: Priority setting for sidebar modules

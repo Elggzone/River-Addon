@@ -1,4 +1,8 @@
 <?php
+/**
+ * Menu module
+ *
+ */
 
 $user = elgg_get_page_owner_entity();
 

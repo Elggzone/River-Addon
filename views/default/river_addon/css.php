@@ -41,6 +41,11 @@
     margin-bottom: 15px;
 	padding: 0; 
 }
+.elgg-sidebar .elgg-module .elgg-avatar-tiny,
+.elgg-sidebar-alt .elgg-module .elgg-avatar-tiny {
+	float: left;
+    padding: 0 1px 1px 0;
+}
 .elgg-sidebar-alt .elgg-avatar-large > a > img {
     width: 160px;
     height: auto;

@@ -2,6 +2,7 @@
 
 $danish = array(
 
+	'river_addon:albums:none'		=> 'Ingen album oprettet endnu.',
 	'river_addon:friends:online'	=> 'Venner online',
 	'river_addon:friends:online:none' 	=> 'Ingen venner online',
 	'river_addon:groups:none'		=> 'Du er ikke tilmeldt nogen grupper. ',
@@ -13,9 +14,8 @@ $danish = array(
 	'river_addon:info:modules'		=> 'Vælg moduler til dine sidebars og vælg i hvilken rækkefølge de skal vises.',	
 	'river_addon:info:notenabled'	=> 'Denne mulighed er ikke blevet aktiveret af system administratoren!',
 	'river_addon:label:columns'		=> 'Vælg dit foretrukne layout',
-	'river_addon:label:count' 		=> 'Antal tweets, der skal roteres',
 	'river_addon:label:groupcount'	=> 'Hvor mange af dine grupper vil du vise på aktivitetsiden',
-	'river_addon:label:num' 		=> 'Antal venner, der skal vises',
+	'river_addon:label:show_albums' => 'Seneste fotoalbums',
 	'river_addon:label:show_custom'	=> 'Brugerdefineret indhold',
 	'river_addon:label:show_friends' 	=> 'venner',
 	'river_addon:label:show_friends_online' => 'Online venner',

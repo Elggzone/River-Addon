@@ -29,6 +29,10 @@ $list_class = 'elgg-list';
 $data_options = elgg_extract('data-options', $vars, false);
 
 if ($data_options) {
+    $list_class = "$list_class";
+}
+
+if ($offset == 0) {
     $list_class = "$list_class elgg-sync";
 }
 

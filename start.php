@@ -70,7 +70,10 @@ function river_addon_init() {
 		}
 		if ($plugin->show_custom != 'no'){
 			elgg_extend_view('page/elements/' . $plugin->show_custom, 'page/elements/custom_module', $plugin->show_custom_order);
-		}		
+		}
+		if ($plugin->show_albums != 'no'){
+			elgg_extend_view('page/elements/' . $plugin->show_albums, 'page/elements/latest_albums', $plugin->show_albums_order);
+		}
 	}	
 	if (elgg_get_context() == 'activity' && $plugin->show_ticker != 'no'){
 		elgg_extend_view('page/elements/' . $plugin->show_ticker, 'page/elements/sidebarticker', $plugin->show_ticker_order);

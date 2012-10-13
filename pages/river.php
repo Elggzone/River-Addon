@@ -43,6 +43,7 @@ switch ($page_type) {
 }
 
 if (!elgg_is_xhr()) {
+	$options['offset'] = (int)(get_input('offset'));
     $options['data-options'] = htmlentities(json_encode($options), ENT_QUOTES, 'UTF-8');
 	
     $activity = elgg_list_river($options);

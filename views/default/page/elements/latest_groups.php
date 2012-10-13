@@ -10,11 +10,13 @@ $title = elgg_view('output/url', array(
 	'is_trusted' => true,
 ));
 
+$num = (int) elgg_get_plugin_setting('num_groups', 'river_addon');
+
 $options = array(
 	'type' => 'group', 
 	'full_view' => FALSE,
 	'pagination' => FALSE,
-	'limit' => 4,
+	'limit' => $num,
 );
 $content = elgg_get_entities($options);
 

@@ -2,6 +2,7 @@
 
 $english = array(
 
+	'river_addon:albums:none'		=> 'No albums created yet.',
 	'river_addon:friends:online'	=> 'Friends Online',
 	'river_addon:friends:online:none' 	=> 'No Friends Online',
 	'river_addon:groups:join'		=> 'Go to groups.',
@@ -10,12 +11,11 @@ $english = array(
 	'river_addon:header:general'	=> 'General:',
 	'river_addon:header:sidebar'	=> 'Sidebar:',
 	'river_addon:info:groups'		=> 'Selecting "Your Groups" will allow each user to select the number of their groups to be displayed!',
-	'river_addon:info:modules'		=> 'Select modules to your sidebars and drag and drop the modules to the order you prefer.',
+	'river_addon:info:modules'		=> 'Select modules to your sidebars, number of entities to display and drag and drop the modules to the order you prefer.',
 	'river_addon:info:notenabled'	=> 'This option has been disabled by the system administrator!',
 	'river_addon:label:columns'		=> 'Choose your preferred layout',
-	'river_addon:label:count' 		=> 'Number of tweets to be rotated if selected',
 	'river_addon:label:groupcount'	=> 'Number of groups to display on activity page',
-	'river_addon:label:num' 		=> 'Number of friends to display if selected',
+	'river_addon:label:show_albums' => 'Latest Photo Albums',
 	'river_addon:label:show_custom'	=> 'Custom Content',
 	'river_addon:label:show_friends'	=> 'Friends',
 	'river_addon:label:show_friends_online' => 'Friends Online',
