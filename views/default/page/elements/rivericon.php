@@ -3,8 +3,7 @@
  * profile icon
  */
 
-//$user = elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
-$user = elgg_get_page_owner_entity();
+$user = elgg_get_logged_in_user_entity();
 
 $icon = elgg_view_entity_icon($user, 'large', array('use_hover' => false));
 

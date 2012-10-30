@@ -51,8 +51,14 @@ if (isset($vars['class'])) {
 	$params['class'] = $vars['class'];
 }
 
-if (((elgg_get_context() == 'activity') || (elgg_get_context() == 'thewire')) && elgg_get_plugin_setting('columns', 'river_addon') == 'yes'){
-		echo elgg_view_layout('two_sidebar', $params);
-	} else {
-		echo elgg_view_layout('one_sidebar', $params);
+$plugin = elgg_get_plugin_from_id('river_addon');
+$selected = $plugin->three_column_context;
+$selected = explode(",", $selected);
+
+$context = elgg_get_context();
+
+if (in_array($context, $selected)) {
+	echo elgg_view_layout('two_sidebar', $params);
+} else {
+	echo elgg_view_layout('one_sidebar', $params);
 }

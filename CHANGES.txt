@@ -1,9 +1,16 @@
 = Version history =
 
-2012.10.12:
+2012.10.30:
 
+- Added: Module setting, display on Activity page or entire site.
+
+2012.10.27:
+
+- Added: Layout setting (2 or 3 columns) per context based on site menu
 - Added: Photo Album module
 - Added: Number setting for latest members and latest groups
+- Moved: js files to js/river_addon/
+- Fixed: river issue
 
 2012.10.10:
 

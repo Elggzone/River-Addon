@@ -20,7 +20,15 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_icon
-)) .  
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[icon_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->icon_context
+)) .   
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_icon') . "</div>
 </li>",
 
@@ -36,6 +44,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_menu
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[menu_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->menu_context
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_menu') . "</div>
 </li>",
@@ -52,6 +68,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_latest_members
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[members_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->members_context
 ))
 . elgg_view("input/dropdown", array(
 	'name' => 'params[num_members]',
@@ -74,6 +98,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_friends
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[friends_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->friends_context
 )) 
 . elgg_view("input/dropdown", array(
 	'name' => 'params[num_friends]',
@@ -95,7 +127,15 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_friends_online
-)) .  
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[online_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->online_context
+)) . 
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_friends_online') . "</div>
 </li>",
 
@@ -111,6 +151,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_ticker
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[ticker_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->ticker_context
 ))
 . elgg_view("input/dropdown", array(
 	'name' => 'params[tweetcount]',
@@ -132,6 +180,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_groups
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[groups_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->groups_context
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_groups') . "</div>
 </li>",
@@ -148,6 +204,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_latest_groups
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[latest_groups_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->latest_groups_context
 ))
 . elgg_view("input/dropdown", array(
 	'name' => 'params[num_groups]',
@@ -169,6 +233,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_tagcloud
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[tagcloud_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->tagcloud_context
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_tagcloud') . "</div>
 </li>",
@@ -185,6 +257,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_custom
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[custom_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->custom_context
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_custom') . "</div>
 </li>",
@@ -201,6 +281,14 @@ $items = array (
 		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
 	),
 	'value' => $plugin->show_albums
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[albums_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->albums_context
 ))
 . elgg_view("input/dropdown", array(
 	'name' => 'params[num_albums]',

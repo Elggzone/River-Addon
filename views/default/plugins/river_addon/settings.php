@@ -10,9 +10,6 @@
 	if (!isset($vars['entity']->show_thewire)) {
 		$vars['entity']->show_thewire = 'no';
 	}
-	if (!isset($vars['entity']->columns)) {
-		$vars['entity']->columns = 'no';
-	}
 	if (!isset($vars['entity']->show_icon)) {
 		$vars['entity']->show_icon = 'sidebar';
 	}
@@ -77,19 +74,28 @@ echo elgg_view('input/dropdown', array(
 echo '</div>';
 
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:appearance') . "</div>";
+echo "<div>" . elgg_echo('river_addon:info:columns') . "</div>";
+
+$menu = elgg_get_config('menus');
+$menu = $menu['site'];
+
+$selected = $plugin->three_column_context;
+$selected = explode(",", $selected);
 
 echo '<div>';
 echo elgg_echo('river_addon:label:columns');
-echo ' ';
-echo elgg_view('input/dropdown', array(
-	'name' => 'params[columns]',
-	'options_values' => array(
-		'no' => elgg_echo('river_addon:option:two'),
-		'yes' => elgg_echo('river_addon:option:three')
-	),
-	'value' => $vars['entity']->columns,
-));
+echo '<select id="select-context" class="elgg-input-select" multiple="multiple">';
+foreach ($menu as $item) {
+	if (in_array($item->getName(), $selected)) {
+		echo "<option selected=\"selected\" value=\"{$item->getName()}\">" . $item->getText() . "</option>";
+	} else {
+		echo "<option value=\"{$item->getName()}\">" . $item->getText() . "</option>";
+	}		
+}
+echo '</select>';
 echo '</div>';
+
+echo "<div class=\"no\" id=\"target\"></div>";
 
 echo '<div>';
 echo elgg_echo('river_addon:label:thewire');
