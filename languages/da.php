@@ -1,4 +1,12 @@
 <?php
+/**
+ *
+ * River Addon Danish language file
+ * @author Elggzone - perjensen-online.dk
+ *
+ * @package river_addon
+ * 
+ */
 
 $danish = array(
 

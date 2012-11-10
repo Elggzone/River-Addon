@@ -1,6 +1,6 @@
 <?php 
 /**
- * Demo 
+ * Custom Content module
  *
  */
 

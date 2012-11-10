@@ -1,6 +1,7 @@
 <?php
 /**
- * profile icon
+ * Icon module
+ *
  */
 
 $user = elgg_get_logged_in_user_entity();
@@ -14,5 +15,3 @@ echo <<<HTML
 </div>
 
 HTML;
-
-
