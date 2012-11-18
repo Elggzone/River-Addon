@@ -1,9 +1,10 @@
 = Version history =
 
-2012.11.10:
+2012.11.14:
 
 - Added: Spanish language file
 - Added: Module setting, display on Activity page or entire site.
+- Added: Code link in manifest
 
 2012.10.27:
 
