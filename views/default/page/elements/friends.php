@@ -30,14 +30,12 @@ $options = array(
 	'list_type' => 'gallery',
 	'order_by' => 'rand()' 
 );
-$content = elgg_get_entities_from_relationship($options);
+$content = elgg_list_entities_from_relationship($options);
 
 if ($content) {
-	$items = '';
-	foreach ($content as $result) {
-		$items .= elgg_view_entity_icon($result, 'tiny');
-	}
+	$title .= '<span> (' . $count . ')</span>';
+	echo elgg_view_module('featured', $title, $content);
+} else {
+	$content = elgg_echo('river_addon:friends:none');
+	echo elgg_view_module('featured', $title, $content);
 }
-
-$title .= '<span> (' . $count . ')</span>';
-echo elgg_view_module('featured', $title, $items);

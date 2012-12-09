@@ -4,6 +4,8 @@
  *
  */
 
+elgg_push_context('widgets');
+
 $user = elgg_get_logged_in_user_entity();
 $user_guid = $user->getGUID();
 
@@ -19,22 +21,19 @@ $options = array(
 	'full_view' => FALSE,
 	'pagination' => FALSE
 );
-$groups = elgg_get_entities_from_relationship($options);
+$mygroups = elgg_list_entities_from_relationship($options);
 
-if ($groups) {
-	elgg_push_context('widgets');
-	$item = '';
-	foreach ($groups as $group) {
-		$item .= elgg_view_entity($group);
-	}
-	elgg_pop_context();
-}else {
+elgg_pop_context();
+
+if ($mygroups) {
+	echo elgg_view_module('aside', $title, $mygroups);
+} else {
 	$url = "groups/all";
 	$visit = elgg_view('output/url', array(
 		'href' => $url,
 		'text' => elgg_echo('river_addon:groups:join'),
 		'is_trusted' => true,
 	));
-   $item = elgg_echo ('river_addon:groups:none') . $visit;
+	$mygroups = elgg_echo ('river_addon:groups:none') . $visit;
+	echo elgg_view_module('aside', $title, $mygroups);
 }
-echo elgg_view_module('aside', $title, $item);

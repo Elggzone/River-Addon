@@ -21,15 +21,8 @@ $options = array(
 	'limit' => $num,
 	'list_type' => 'gallery'
 );
-$content = elgg_get_entities($options);
-
-if ($content) {
-	$items = '';
-	foreach ($content as $user) {
-		$items .= elgg_view_entity_icon($user, 'tiny');
-	}
-}
+$content = elgg_list_entities($options);
 
 elgg_pop_context();
 
-echo elgg_view_module('featured', $title, $items);
+echo elgg_view_module('featured', $title, $content);

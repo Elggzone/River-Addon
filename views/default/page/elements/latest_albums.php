@@ -4,6 +4,8 @@
  *
  */
 
+elgg_push_context('widgets');
+
 $title = elgg_view('output/url', array(
 	'href' => "/photos/all",
 	'text' => elgg_echo('tidypics:widget:albums'),
@@ -21,17 +23,13 @@ $options = array(
 	"view_type_toggle" => false,
 	'full_view' => false
 );
-$albums = elgg_get_entities_from_metadata($options);
+$albums = elgg_list_entities_from_metadata($options);
+
+elgg_pop_context();
 
 if ($albums) {
-	elgg_push_context('widgets');
-	$item = '';
-	foreach ($albums as $album) {
-		$item .= elgg_view_entity($album);
-	}
-	elgg_pop_context();
-	echo elgg_view_module('aside', $title, $item);
-}else {
-	$item = elgg_echo('river_addon:albums:none');
-	echo elgg_view_module('aside', $title, $item);
+	echo elgg_view_module('aside', $title, $albums);
+} else {
+	$albums = elgg_echo('river_addon:albums:none');
+	echo elgg_view_module('aside', $title, $albums);
 }

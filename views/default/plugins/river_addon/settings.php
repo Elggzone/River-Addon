@@ -19,6 +19,9 @@
 	if (!isset($vars['entity']->show_latest_members)) {
 		$vars['entity']->show_latest_members = 'sidebar_alt';
 	}
+	if (!isset($vars['entity']->show_comments)) {
+		$vars['entity']->show_comments = 'sidebar_alt';
+	}
 	if (!isset($vars['entity']->tab_order)) {
 		$vars['entity']->tab_order = 'default';
 	}
@@ -52,9 +55,9 @@
 	if (!isset($vars['entity']->show_albums)) {
 		$vars['entity']->show_albums = 'no';
 	}
-	$new = 10;
+	$new = 11;
 	if (!isset($plugin->neworder) || empty($plugin->neworder) || !preg_match('/(^|,)'. $new .'($|,)/', $plugin->neworder)) {
-		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,10,0';
+		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,10,11,0';
 	}
 
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:general') . "</div>";

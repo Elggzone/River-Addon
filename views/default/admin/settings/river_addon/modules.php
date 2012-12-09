@@ -297,6 +297,41 @@ $items = array (
 )) .  
 "<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:show_albums') . "</div>
 </li>",
+
+"<li id=\"11\" class=\"$plugin->show_comments\">
+<div class='elgg-handle'>
+<span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span>
+<span class='elgg-handle-bar'></span><span class='elgg-handle-bar'></span></div>"
+ . elgg_view("input/dropdown", array(
+	'name' => 'params[show_comments]',
+	'options_values' => array(
+		'no' => elgg_echo('option:no'),
+		'sidebar_alt' => elgg_echo('river_addon:option:sidebar:left'),
+		'sidebar' => elgg_echo('river_addon:option:sidebar:right')
+	),
+	'value' => $plugin->show_comments
+))
+. elgg_view("input/dropdown", array(
+	'name' => 'params[comments_context]',
+	'options_values' => array(
+		'activity' => elgg_echo('river_addon:option:activity'),
+		'site' => elgg_echo('river_addon:option:site')
+	),
+	'value' => $plugin->comments_context
+)) 
+. elgg_view("input/dropdown", array(
+	'name' => 'params[subtypes]',
+	'options_values' => array(
+		'' => elgg_echo('river_addon:subtype:all'),
+		'blog' => elgg_echo('river_addon:subtype:blog'),
+		'bookmarks' => elgg_echo('river_addon:subtype:bookmarks'),
+		'file' => elgg_echo('river_addon:subtype:file'),
+		'page' => elgg_echo('river_addon:subtype:page'),
+	),
+	'value' => $plugin->subtypes
+)) .  
+"<div id='title' class='elgg-state-draggable'>" . elgg_echo('river_addon:label:comments') . "</div>
+</li>",
 );
 
 $ordering = elgg_get_plugin_setting('neworder', 'river_addon');

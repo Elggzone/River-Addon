@@ -84,6 +84,9 @@ function river_addon_init() {
 		if ($plugin->show_albums != 'no' && ($ctx == $plugin->albums_context || $plugin->albums_context == 'site')){
 			elgg_extend_view('page/elements/' . $plugin->show_albums, 'page/elements/latest_albums', $plugin->show_albums_order);
 		}
+		if ($plugin->show_comments != 'no' && ($ctx == $plugin->comments_context || $plugin->comments_context == 'site')){
+			elgg_extend_view('page/elements/' . $plugin->show_comments, 'page/elements/latest_comments', $plugin->show_comments_order);
+		}
 		if ($plugin->show_ticker != 'no' && ($ctx == $plugin->ticker_context || $plugin->ticker_context == 'site')){
 			elgg_extend_view('page/elements/' . $plugin->show_ticker, 'page/elements/sidebarticker', $plugin->show_ticker_order);
 		}
