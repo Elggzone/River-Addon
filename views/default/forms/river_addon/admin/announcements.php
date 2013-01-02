@@ -5,11 +5,11 @@
 
 $plugin = elgg_get_plugin_from_id('river_addon');
 
-if (!isset($vars['entity']->show_announcement)) {
-	$vars['entity']->show_announcement = 'no';
+if (!isset($plugin->show_announcement)) {
+	$plugin->show_announcement = 'no';
 }
-if (!isset($vars['entity']->module_style)) {
-	$vars['entity']->module_style = 'announcement';
+if (!isset($plugin->module_style)) {
+	$plugin->module_style = 'announcement';
 }
 
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:announcement') . "</div>";

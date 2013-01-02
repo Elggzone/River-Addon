@@ -7,57 +7,57 @@
 	$plugin = elgg_get_plugin_from_id('river_addon');
 
 	// set default values
-	if (!isset($vars['entity']->show_thewire)) {
-		$vars['entity']->show_thewire = 'no';
+	if (!isset($plugin->show_thewire)) {
+		$plugin->show_thewire = 'no';
 	}
-	if (!isset($vars['entity']->show_icon)) {
-		$vars['entity']->show_icon = 'sidebar';
+	if (!isset($plugin->show_icon)) {
+		$plugin->show_icon = 'sidebar';
 	}
-	if (!isset($vars['entity']->show_menu)) {
-		$vars['entity']->show_menu = 'sidebar';
+	if (!isset($plugin->show_menu)) {
+		$plugin->show_menu = 'sidebar';
 	}
-	if (!isset($vars['entity']->show_latest_members)) {
-		$vars['entity']->show_latest_members = 'sidebar_alt';
+	if (!isset($plugin->show_latest_members)) {
+		$plugin->show_latest_members = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->show_comments)) {
-		$vars['entity']->show_comments = 'sidebar_alt';
+	if (!isset($plugin->show_comments)) {
+		$plugin->show_comments = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->tab_order)) {
-		$vars['entity']->tab_order = 'default';
+	if (!isset($plugin->tab_order)) {
+		$plugin->tab_order = 'default';
 	}
-	if (!isset($vars['entity']->show_friends)) {
-		$vars['entity']->show_friends = 'sidebar_alt';
+	if (!isset($plugin->show_friends)) {
+		$plugin->show_friends = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->show_friends_online)) {
-		$vars['entity']->show_friends_online = 'sidebar_alt';
+	if (!isset($plugin->show_friends_online)) {
+		$plugin->show_friends_online = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->num_friends)) {
-		$vars['entity']->num_friends = 12;
+	if (!isset($plugin->num_friends)) {
+		$plugin->num_friends = 12;
 	}
-	if (!isset($vars['entity']->show_ticker)) {
-		$vars['entity']->show_ticker = 'sidebar';
+	if (!isset($plugin->show_ticker)) {
+		$plugin->show_ticker = 'sidebar';
 	}
-	if (!isset($vars['entity']->tweetcount)) {
-		$vars['entity']->tweetcount = '4';
+	if (!isset($plugin->tweetcount)) {
+		$plugin->tweetcount = '4';
 	}
-	if (!isset($vars['entity']->show_latest_groups)) {
-		$vars['entity']->show_latest_groups = 'sidebar';
+	if (!isset($plugin->show_latest_groups)) {
+		$plugin->show_latest_groups = 'sidebar';
 	}
-	if (!isset($vars['entity']->show_custom)) {
-		$vars['entity']->show_custom = 'sidebar_alt';
+	if (!isset($plugin->show_custom)) {
+		$plugin->show_custom = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->show_groups)) {
-		$vars['entity']->show_groups = 'sidebar';
+	if (!isset($plugin->show_groups)) {
+		$plugin->show_groups = 'sidebar';
 	}
-	if (!isset($vars['entity']->show_tagcloud)) {
-		$vars['entity']->show_tagcloud = 'sidebar_alt';
+	if (!isset($plugin->show_tagcloud)) {
+		$plugin->show_tagcloud = 'sidebar_alt';
 	}
-	if (!isset($vars['entity']->show_albums)) {
-		$vars['entity']->show_albums = 'no';
+	if (!isset($plugin->show_albums)) {
+		$plugin->show_albums = 'no';
 	}
 	$new = 11;
 	if (!isset($plugin->neworder) || empty($plugin->neworder) || !preg_match('/(^|,)'. $new .'($|,)/', $plugin->neworder)) {
-		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,10,11,0';
+		$plugin->neworder = '1,2,3,4,5,6,7,8,9,10,11,0';
 	}
 
 
@@ -126,3 +126,4 @@ echo "</div>";
 echo "<div>" . elgg_echo('river_addon:info:groups') . "</div>";
 
 echo elgg_view('input/submit', array('value' => elgg_echo("save")));
+
