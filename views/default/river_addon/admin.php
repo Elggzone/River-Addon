@@ -9,37 +9,44 @@
 /* ***************************************
 	SETTINGS
 *****************************************/
-#river_addon-settings{
+.elgg-form-river-addon-admin-settings,
+.elgg-form-river-addon-admin-announcements{
 	width: 460px;
     padding:30px;
     border:1px solid #CCC;
 }
-#river_addon-settings .label{
+.elgg-form-river-addon-admin-settings,
+.elgg-form-river-addon-admin-announcements{
+    margin-top: 20px;
+}
+.elgg-form-river-addon-admin-settings .label,
+.elgg-form-river-addon-admin-announcements .label{
 	font-size: 1.2em;
     font-weight: bold;
 }
-#river_addon-settings .elgg-input-text {
+.elgg-form-river-addon-admin-settings .elgg-input-text {
 	width: 40px;
 }
-#river_addon-settings .elgg-input-text,
-#river_addon-settings .elgg-input-dropdown{
+.elgg-form-river-addon-admin-settings .elgg-input-text,
+.elgg-form-river-addon-admin-settings .elgg-input-dropdown,
+.elgg-form-river-addon-admin-announcements .elgg-input-dropdown{
 	float: right;
 	margin-left: 8px;
 }
-#river_addon-settings .elgg-list li {
+.elgg-form-river-addon-admin-settings .elgg-list li {
 	padding: 10px 10px 8px;
     margin-bottom: 3px;
 }
-#river_addon-settings .no {
+.elgg-form-river-addon-admin-settings .no {
 	border: 1px solid #CCC;
 	background: none;
 }
-#river_addon-settings .sidebar,
-#river_addon-settings .sidebar_alt {
+.elgg-form-river-addon-admin-settings .sidebar,
+.elgg-form-river-addon-admin-settings .sidebar_alt {
 	border: 1px solid #B4C25C;
 	background: #F5F7E9;
 }
-#river_addon-settings .elgg-list li #title {
+.elgg-form-river-addon-admin-settings .elgg-list li #title {
     vertical-align: top;
     display: inline-block;
 }
@@ -65,7 +72,7 @@
 .elgg-handle .elgg-handle-bar + .elgg-handle-bar {
   margin-top: 3px;
 }
-#river_addon-settings #target {
+.elgg-form-river-addon-admin-settings #target {
 	padding: 10px;
     height: auto;
 }

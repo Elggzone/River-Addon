@@ -3,9 +3,9 @@
  *
  * Elgg river_addon
  *
- * @author Per Jensen - Elggzone
+ * @author Elggzone
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License v2
- * @copyright Copyright (c) 2012, Per Jensen
+ * @copyright Copyright (c) 2013, Elggzone
  *
  * @link http://www.perjensen-online.dk/
  *
@@ -22,7 +22,9 @@ function river_addon_init() {
 	$action_path = dirname(__FILE__) . '/actions';
 	elgg_register_action("river_addon/reorder", "$action_path/reorder.php");
 	elgg_register_action("river_addon/context", "$action_path/context.php");
-		
+	elgg_register_action("river_addon/admin/announcements", "$action_path/announcement.php", 'admin');
+	elgg_register_action("river_addon/admin/settings", "$action_path/settings.php", 'admin');
+				
 	$river_addon_js = elgg_get_simplecache_url('js', 'river_addon/river');
 	elgg_register_simplecache_view('js/river_addon/river');
 	elgg_register_js('river', $river_addon_js);
@@ -49,12 +51,15 @@ function river_addon_init() {
 		
 	elgg_unregister_page_handler('activity', 'elgg_river_page_handler');
 	elgg_register_page_handler('activity', 'river_addon_river_page_handler');
+	
+	elgg_register_admin_menu_item('configure', 'river_addon', 'settings');
 
 	if (elgg_is_logged_in()	&& elgg_get_context() == 'activity'){	
 		if ($plugin->show_thewire == 'yes'){
 			elgg_extend_view('page/layouts/content/header', 'page/elements/riverwire', 1);
 		}
 	}
+	
 	if (elgg_is_logged_in()){	
 		$ctx = elgg_get_context();
 		if ($plugin->show_icon != 'no' && ($ctx == $plugin->icon_context || $plugin->icon_context == 'site')){
@@ -93,12 +98,15 @@ function river_addon_init() {
 		if ($plugin->show_tagcloud != 'no' && ($ctx == $plugin->tagcloud_context || $plugin->tagcloud_context == 'site')){
 			elgg_extend_view('page/elements/' . $plugin->show_tagcloud, 'page/elements/tagcloud_block', $plugin->show_tagcloud_order);	
 		}
+		if ($plugin->show_announcement == 'yes' && ($ctx == $plugin->announcement_context || $plugin->announcement_context == 'site')){
+			elgg_extend_view('page/layouts/content/header', 'page/elements/announcements', 0);
+		}
 	}	
 
 	if (elgg_is_admin_logged_in()) {
 		elgg_register_menu_item('extras', array(
 			'name' => 'themeadministration',
-			'href' => 'admin/plugin_settings/river_addon',
+			'href' => 'admin/settings/river_addon',
 			'title' => elgg_echo('river_addon:tooltip:settings'),
 			'text' => elgg_view_icon('settings-alt'),
 			'priority' => 1000,

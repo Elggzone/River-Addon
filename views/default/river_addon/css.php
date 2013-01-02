@@ -27,6 +27,22 @@
 	width: auto;
 }
 /* ***************************************
+	MODULE ANNOUNCEMENT
+*****************************************/
+.elgg-module-announcement {
+	border: 1px solid #CCCCCC;
+    padding: 10px;
+}
+.elgg-module-announcement > .elgg-head {
+	border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+.elgg-module-announcement > .elgg-body img {
+	float: left;
+    margin: 0 10px 10px 0;
+}
+/* ***************************************
 	MISC
 *****************************************/
 .elgg-sidebar .elgg-module {

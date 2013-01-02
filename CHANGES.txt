@@ -1,5 +1,11 @@
 = Version history =
 
+2013.01.01:
+
+- Added: Announcement module
+- Added: Tabbed view to settings
+- Moved: settings.php to tabbed view
+
 2012.12.09:
 
 - Added: Latest comments module

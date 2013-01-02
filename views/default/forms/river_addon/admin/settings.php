@@ -60,6 +60,8 @@
 		$vars['entity']->neworder = '1,2,3,4,5,6,7,8,9,10,11,0';
 	}
 
+
+
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:general') . "</div>";
 
 echo '<div>';
@@ -72,7 +74,7 @@ echo elgg_view('input/dropdown', array(
 		'friend_order' => elgg_echo('river_addon:option:friend'),
 		'mine_order' => elgg_echo('river_addon:option:mine')
 	),
-	'value' => $vars['entity']->tab_order,
+	'value' => $plugin->tab_order,
 ));
 echo '</div>';
 
@@ -109,7 +111,7 @@ echo elgg_view('input/dropdown', array(
 		'no' => elgg_echo('option:no'),
 		'yes' => elgg_echo('option:yes')
 	),
-	'value' => $vars['entity']->show_thewire,
+	'value' => $plugin->show_thewire
 ));
 echo '</div>';
 
@@ -122,3 +124,5 @@ echo '<div class="elgg-modules">';
 echo "</div>";
 
 echo "<div>" . elgg_echo('river_addon:info:groups') . "</div>";
+
+echo elgg_view('input/submit', array('value' => elgg_echo("save")));
