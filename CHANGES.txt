@@ -1,5 +1,11 @@
 = Version history =
 
+2013.01.08:
+
+- Fixed: Default settings value, neworder
+- Improved: Options panel
+- Deleted: actions/announcement.php
+
 2013.01.01:
 
 - Added: Announcement module

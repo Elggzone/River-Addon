@@ -22,7 +22,7 @@ function river_addon_init() {
 	$action_path = dirname(__FILE__) . '/actions';
 	elgg_register_action("river_addon/reorder", "$action_path/reorder.php");
 	elgg_register_action("river_addon/context", "$action_path/context.php");
-	elgg_register_action("river_addon/admin/announcements", "$action_path/announcement.php", 'admin');
+	elgg_register_action("river_addon/admin/announcements", "$action_path/settings.php", 'admin');
 	elgg_register_action("river_addon/admin/settings", "$action_path/settings.php", 'admin');
 				
 	$river_addon_js = elgg_get_simplecache_url('js', 'river_addon/river');

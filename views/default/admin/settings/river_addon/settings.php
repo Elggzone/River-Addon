@@ -3,4 +3,4 @@
  * River Addon settings
  */
 
-echo elgg_view_form('river_addon/admin/settings');
+echo elgg_view_form('river_addon/admin/settings', array('class' => 'elggzone-settings'));
