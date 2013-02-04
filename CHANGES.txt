@@ -1,5 +1,11 @@
 = Version history =
 
+2013.02.04:
+
+- Fixed: Minor css issue
+- Added: Sidebar tab
+- Deleted: river_addon/announcement.php, /settings.php,
+
 2013.01.08:
 
 - Fixed: Default settings value, neworder

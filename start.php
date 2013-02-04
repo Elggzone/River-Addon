@@ -23,7 +23,8 @@ function river_addon_init() {
 	elgg_register_action("river_addon/reorder", "$action_path/reorder.php");
 	elgg_register_action("river_addon/context", "$action_path/context.php");
 	elgg_register_action("river_addon/admin/announcements", "$action_path/settings.php", 'admin');
-	elgg_register_action("river_addon/admin/settings", "$action_path/settings.php", 'admin');
+	elgg_register_action("river_addon/admin/sidebar", "$action_path/settings.php", 'admin');
+	elgg_register_action("river_addon/admin/general", "$action_path/settings.php", 'admin');
 				
 	$river_addon_js = elgg_get_simplecache_url('js', 'river_addon/river');
 	elgg_register_simplecache_view('js/river_addon/river');

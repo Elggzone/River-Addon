@@ -13,8 +13,9 @@ if (!isset($plugin->module_style)) {
 }
 
 echo "<div class=\"label\">" . elgg_echo('river_addon:header:announcement') . "</div>";
+echo "<div>" . elgg_echo('river_addon:info:announcement') . "</div>";
 
-echo '<div>';
+echo '<div class="item">';
 echo elgg_echo('river_addon:label:announcement');
 echo ' ';
 echo elgg_view('input/dropdown', array(
@@ -35,7 +36,7 @@ echo elgg_view("input/dropdown", array(
 ));
 echo '</div>';
 
-echo '<div>';
+echo '<div class="item">';
 echo elgg_echo('river_addon:label:module');
 echo ' ';
 echo elgg_view('input/dropdown', array(

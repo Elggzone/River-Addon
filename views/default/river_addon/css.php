@@ -29,6 +29,12 @@
 /* ***************************************
 	MODULE ANNOUNCEMENT
 *****************************************/
+.ez-module {
+    margin-top: 10px;
+}
+.ez-module > .elgg-body img {
+    margin: 0 10px 10px 0;
+}
 .elgg-module-announcement {
 	border: 1px solid #CCCCCC;
     padding: 10px;
@@ -38,14 +44,13 @@
     margin-bottom: 10px;
 	padding-bottom: 5px;
 }
-.elgg-module-announcement > .elgg-body img {
-	float: left;
-    margin: 0 10px 10px 0;
-}
 /* ***************************************
 	MISC
 *****************************************/
 .elgg-sidebar .elgg-module {
+	display: inline-block;
+}
+.elgg-sidebar-alt .elgg-module {
 	display: inline-block;
 }
 .elgg-sidebar #profile-owner-block { 
