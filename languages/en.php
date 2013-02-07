@@ -24,9 +24,8 @@ $english = array(
 	'river_addon:header:general'	=> 'General:',
 	'river_addon:header:sidebar'	=> 'Sidebar:',
 	'river_addon:info:columns'		=> 'Select which areas you want to display with three columns layout. Leave unchecked for two columns layout.',
-	'river_addon:info:groups'		=> 'Selecting "Your Groups" will allow each user to select the number of their groups to be displayed!',
 	'river_addon:info:announcement'	=> 'Decide where to display Announcements. Activity page or the entire site.',
-	'river_addon:info:modules'		=> '<p>Select sidebar modules, number of entities to display and drag and drop the modules to the order you prefer.</p><p>Decide where to display modules. Activity page or the entire site.</p>',
+	'river_addon:info:modules'		=> '<p>Select sidebar modules, number of entities to display and drag and drop the modules to the order you prefer. Selecting "Your Groups" will allow each user to select the number of their groups to be displayed!</p><p>Decide where to display modules. Activity page or the entire site.</p>',
 	'river_addon:info:notenabled'	=> 'This option has been disabled by the system administrator!',
 	'river_addon:label:announcement' => 'Enable Announcements',
 	'river_addon:label:columns'		=> 'Three columns layout',
@@ -90,7 +89,7 @@ $english = array(
 	'river_addon:tweet:4' 			=> 'Joining a group is as easy as clicking the "Join Group" link on a group\'s profile page',
 
 	// demo	
-	'river_addon:demo:text'			=> '<p>Pass any content from the included demo file to Elgg secondary sidebar.</p><p>For example Google AdSense.</p>',
+	'river_addon:demo:text'			=> '<p>Pass any content from the included demo file to a sidebar.</p><p>For example Google AdSense.</p>',
 	'river_addon:demo:title'		=> 'Info',
 	
 );

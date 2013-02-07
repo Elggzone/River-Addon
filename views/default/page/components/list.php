@@ -61,16 +61,17 @@ if ($pagination && $count) {
 if (is_array($items) && count($items) > 0) {
 	$html .= "<ul class=\"$list_class\" data-options=\"$data_options\">";
     foreach ($items as $item) {
-        if (elgg_instanceof($item)) {
-            $id = "elgg-{$item->getType()}-{$item->getGUID()}";
-            $time = $item->time_created;
-        } else {
-            $id = "item-{$item->getType()}-{$item->id}";
-            $time = $item->posted;
-        }
-        $html .= "<li id=\"$id\" class=\"$item_class\" data-timestamp=\"$time\">";
-        $html .= elgg_view_list_item($item, $vars);
-        $html .= '</li>';
+		$li = elgg_view_list_item($item, $vars);
+		if ($li) {
+			if (elgg_instanceof($item)) {
+				$id = "elgg-{$item->getType()}-{$item->getGUID()}";
+				$time = $item->time_created;
+			} else {
+				$id = "item-{$item->getType()}-{$item->id}";
+				$time = $item->posted;
+			}
+			$html .= "<li id=\"$id\" class=\"$item_class\" data-timestamp=\"$time\">$li</li>";
+		}
     }
 	$html .= '</ul>';
 }

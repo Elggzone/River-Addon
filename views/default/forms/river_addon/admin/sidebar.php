@@ -34,6 +34,4 @@ echo '<div class="elgg-modules">';
 	echo $modules;
 echo "</div>";
 
-echo "<div>" . elgg_echo('river_addon:info:groups') . "</div>";
-
 echo elgg_view('input/submit', array('value' => elgg_echo("save")));

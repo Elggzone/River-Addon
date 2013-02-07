@@ -24,9 +24,8 @@ $danish = array(
 	'river_addon:header:general'	=> 'Generelt:',
 	'river_addon:header:sidebar'	=> 'Sidebar:',
 	'river_addon:info:columns'		=> 'Vælg hvilke områder du vil vise med tre kolonners layout. Ingen markering for to kolonners layout.',
-	'river_addon:info:groups'		=> 'Hvis du vælger ja herunder, vil hver bruger kunne indstille antallet af grupper, han vil vise!',
 	'river_addon:info:announcement'	=> 'Beslut hvor du vil vise meddelelser. Aktivitet eller hele webstedet.',
-	'river_addon:info:modules'		=> '<p>Vælg moduler til dine sidebars og vælg i hvilken rækkefølge de skal vises.</p><p>Beslut hvor du vil vise moduler. Aktivitet eller hele webstedet.</p>',	
+	'river_addon:info:modules'		=> '<p>Vælg moduler til dine sidebars, antal enheder der skal vise og vælg i hvilken rækkefølge de skal placeres. Hvis du vælger at vise Dine grupper, vil hver bruger kunne vælge det antal af sine grupper, han vil vise!</p><p>Beslut hvor du vil vise moduler. Aktivitet eller hele webstedet.</p>',	
 	'river_addon:info:notenabled'	=> 'Denne mulighed er ikke blevet aktiveret af system administratoren!',
 	'river_addon:label:announcement' => 'Aktiver meddelelser',
 	'river_addon:label:columns'		=> 'Tre kolonners layout',
@@ -90,7 +89,7 @@ $danish = array(
 	'river_addon:tweet:4' 			=> 'At blive medlem af en gruppe er så let som at klikke på "Bliv medlem" på gruppens profilside',
 	
 	// demo	
-	'river_addon:demo:text'			=> '<p>Send indhold fra den inkluderede demo fil til Elgg\'s sekundære sidebar.</p><p>For eksempel Google AdSense.</p>',	
+	'river_addon:demo:text'			=> '<p>Send indhold fra den inkluderede demo fil til en sidebar.</p><p>For eksempel Google AdSense.</p>',	
 	'river_addon:demo:title'		=> 'Info',
 		
 );

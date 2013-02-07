@@ -1,10 +1,11 @@
 = Version history =
 
-2013.02.04:
+2013.02.07:
 
+- Updated to Elgg 1.8.13
 - Fixed: Minor css issue
 - Added: Sidebar tab
-- Deleted: river_addon/announcement.php, /settings.php,
+- Deleted: river_addon/announcement.php, /settings.php
 
 2013.01.08:
 
