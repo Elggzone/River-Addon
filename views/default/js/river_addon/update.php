@@ -1,4 +1,13 @@
-//<script>
+<?php
+/**
+ *
+ * River addon river wire js
+ *
+ */
+
+if (0) { ?><script><?php }
+
+?>
 
 elgg.provide('elgg.river_addon');
 
@@ -19,7 +28,7 @@ elgg.river_addon.submit = function(e) {
 						
 			if (river.length < 1) {
 				river.append(json.output);
-			} else {				
+			} else {								
 				$(json.output).find('li:first').hide().prependTo(river).slideDown(500);
 			};
 			

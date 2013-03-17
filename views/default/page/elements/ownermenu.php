@@ -13,7 +13,7 @@ if (!$user) {
 $title = elgg_echo('river_addon:welcome', array($user->name));
 
 $body = elgg_view_menu('owner_block', array(
-	'entity' => elgg_get_page_owner_entity(),
+	'entity' => $user,
 ));
 
 echo elgg_view('page/components/module', array(
