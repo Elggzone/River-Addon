@@ -21,7 +21,8 @@ $num = (int) elgg_get_plugin_setting('num_friends', 'river_addon');
 
 $options = array(
 	'type' => 'user',
-	"limit" => $num,
+	'limit' => $num,
+	'offset' => 0,
 	'relationship' => 'friend',
 	'relationship_guid' => elgg_get_logged_in_user_guid(),
 	'inverse_relationship' => false,

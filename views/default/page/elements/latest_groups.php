@@ -19,6 +19,7 @@ $options = array(
 	'full_view' => FALSE,
 	'pagination' => FALSE,
 	'limit' => $num,
+	'offset' => 0
 );
 $groups = elgg_list_entities($options);
 

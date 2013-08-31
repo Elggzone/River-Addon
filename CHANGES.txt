@@ -1,5 +1,9 @@
 = Version history =
 
+2013.08.31:
+
+- Fixed: missing offset
+
 2013.03.17:
 
 - Updated to Elgg 1.8.14

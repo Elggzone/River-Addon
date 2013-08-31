@@ -8,7 +8,8 @@ $title = elgg_echo('river_addon:friends:online');
 
 $options = array(
 	'type' => 'user',
-	"limit" => FALSE,
+	'limit' => FALSE,
+	'offset' => 0,
 	'relationship' => 'friend',
 	'relationship_guid' => elgg_get_logged_in_user_guid(),
 	'inverse_relationship' => FALSE,

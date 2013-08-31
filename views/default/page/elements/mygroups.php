@@ -16,6 +16,7 @@ $group_count = elgg_get_plugin_user_setting('group_count', $user_guid, 'river_ad
 $options = array(
 	'type' => 'group',
 	'limit' => $group_count,
+	'offset' => 0,
 	'relationship' => 'member',
 	'relationship_guid' => elgg_get_logged_in_user_guid(),
 	'full_view' => FALSE,

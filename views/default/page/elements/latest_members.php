@@ -19,6 +19,7 @@ $options = array(
 	'full_view' => false,
 	'pagination' => FALSE,
 	'limit' => $num,
+	'offset' => 0,
 	'list_type' => 'gallery'
 );
 $content = elgg_list_entities($options);
