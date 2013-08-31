@@ -27,10 +27,10 @@ foreach ($friends_online as $online) {
 	} 
 }
 if ($result) {
-	echo elgg_view_module('featured', $title, $result);
+	echo elgg_view_module('featured', $title, $result, array('class' => 'elgg-module-friends-online'));
 } else {
 	$result = elgg_echo('river_addon:friends:online:none');
-	echo elgg_view_module('featured', $title, $result);
+	echo elgg_view_module('featured', $title, $result, array('class' => 'elgg-module-friends-online'));
 }
 
 

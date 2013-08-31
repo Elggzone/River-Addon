@@ -27,7 +27,7 @@ $mygroups = elgg_list_entities_from_relationship($options);
 elgg_pop_context();
 
 if ($mygroups) {
-	echo elgg_view_module('aside', $title, $mygroups);
+	echo elgg_view_module('aside', $title, $mygroups, array('class' => 'elgg-module-my-groups'));
 } else {
 	$url = "groups/all";
 	$visit = elgg_view('output/url', array(
@@ -36,5 +36,5 @@ if ($mygroups) {
 		'is_trusted' => true,
 	));
 	$mygroups = elgg_echo ('river_addon:groups:none') . $visit;
-	echo elgg_view_module('aside', $title, $mygroups);
+	echo elgg_view_module('aside', $title, $mygroups, array('class' => 'elgg-module-my-groups'));
 }

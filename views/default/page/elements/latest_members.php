@@ -26,4 +26,4 @@ $content = elgg_list_entities($options);
 
 elgg_pop_context();
 
-echo elgg_view_module('featured', $title, $content);
+echo elgg_view_module('featured', $title, $content, array('class' => 'elgg-module-latest-members'));

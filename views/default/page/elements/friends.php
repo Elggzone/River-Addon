@@ -35,8 +35,8 @@ $content = elgg_list_entities_from_relationship($options);
 
 if ($content) {
 	$title .= '<span> (' . $count . ')</span>';
-	echo elgg_view_module('featured', $title, $content);
+	echo elgg_view_module('featured', $title, $content, array('class' => 'elgg-module-friends'));
 } else {
 	$content = elgg_echo('river_addon:friends:none');
-	echo elgg_view_module('featured', $title, $content);
+	echo elgg_view_module('featured', $title, $content, array('class' => 'elgg-module-friends'));
 }

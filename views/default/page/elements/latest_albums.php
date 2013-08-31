@@ -29,8 +29,9 @@ $albums = elgg_list_entities_from_metadata($options);
 elgg_pop_context();
 
 if ($albums) {
-	echo elgg_view_module('aside', $title, $albums);
+	echo elgg_view_module('aside', $title, $albums, array('class' => 'elgg-module-latest-albums'));
+
 } else {
 	$albums = elgg_echo('river_addon:albums:none');
-	echo elgg_view_module('aside', $title, $albums);
+	echo elgg_view_module('aside', $title, $albums, array('class' => 'elgg-module-latest-albums'));
 }

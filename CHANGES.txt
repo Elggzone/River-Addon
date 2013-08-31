@@ -2,6 +2,7 @@
 
 2013.08.31:
 
+- Added: class to sidebar modules
 - Fixed: missing offset
 
 2013.03.17:

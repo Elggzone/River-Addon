@@ -26,8 +26,8 @@ $groups = elgg_list_entities($options);
 elgg_pop_context();
 
 if ($groups) {
-	echo elgg_view_module('aside', $title, $groups);
+	echo elgg_view_module('aside', $title, $groups, array('class' => 'elgg-module-latest-groups'));
 } else {
 	$groups = elgg_echo('river_addon:groups:none');
-	echo elgg_view_module('aside', $title, $groups);
+	echo elgg_view_module('aside', $title, $groups, array('class' => 'elgg-module-latest-groups'));
 }
