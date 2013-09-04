@@ -1,6 +1,6 @@
 = Version history =
 
-2013.08.31:
+2013.09.04:
 
 - Added: class to sidebar modules
 - Fixed: missing offset
