@@ -26,10 +26,6 @@ function river_addon_init() {
 	elgg_register_action("river_addon/admin/sidebar", "$action_path/settings.php", 'admin');
 	elgg_register_action("river_addon/admin/general", "$action_path/settings.php", 'admin');
 				
-	$river_addon_js = elgg_get_simplecache_url('js', 'river_addon/river');
-	elgg_register_simplecache_view('js/river_addon/river');
-	elgg_register_js('river', $river_addon_js);
-	
   	$js = elgg_get_simplecache_url('js', 'river_addon/settings');
 	elgg_register_simplecache_view('js/river_addon/settings');
 	elgg_register_js('settings', $js);
@@ -137,7 +133,7 @@ function river_addon_river_page_handler($page) {
 	}
 	set_input('page_type', $page_type);
 
-	require_once("{$CONFIG->path}mod/river_addon/pages/river.php");
+	require_once("{$CONFIG->path}pages/river.php");
 	return true;
 }
 
