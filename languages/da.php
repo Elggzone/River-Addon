@@ -8,7 +8,7 @@
  * 
  */
 
-$danish = array(
+return array(
 
 	'admin:settings:river_addon'	=> 'River Addon',
 	'river_addon:albums:none'		=> 'Ingen album oprettet endnu.',
@@ -93,7 +93,3 @@ $danish = array(
 	'river_addon:demo:title'		=> 'Info',
 		
 );
-
-add_translation("da", $danish);
-
-?>

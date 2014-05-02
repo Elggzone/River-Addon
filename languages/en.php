@@ -8,7 +8,7 @@
  * 
  */
 
-$english = array(
+return array(
 
 	'admin:settings:river_addon'	=> 'River Addon',	
 	'river_addon:albums:none'		=> 'No Albums created yet.',
@@ -93,7 +93,3 @@ $english = array(
 	'river_addon:demo:title'		=> 'Info',
 	
 );
-
-add_translation("en", $english);
-
-?>

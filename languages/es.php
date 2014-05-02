@@ -8,7 +8,7 @@
  * 
  */
 
-$spanish = array(
+return array(
 
 	'river_addon:albums:none' 		=> 'No existen &Aacute;lbums.',
 	'river_addon:friends:online' 	=> 'Amigos en l&iacute;nea',
@@ -70,7 +70,3 @@ $spanish = array(
 	'river_addon:demo:title' 		=> 'Info',
 
 );
-
-add_translation("es", $spanish);
-
-?>
