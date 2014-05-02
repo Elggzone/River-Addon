@@ -13,9 +13,5 @@ foreach ($params as $k => $v) {
 	}
 }
 
-foreach ($params as $name => $value) {
-	$plugin->setSetting($name, $value);
-}
-
 system_message(elgg_echo('plugins:settings:save:ok', array('river_addon')));
 forward(REFERER);

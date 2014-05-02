@@ -14,42 +14,66 @@
  * @uses $vars['class']          Additional class to apply to layout
  */
 
-// give plugins an opportunity to add to content sidebars
-$sidebar_content = elgg_extract('sidebar', $vars, '');
-$params = $vars;
-$params['content'] = $sidebar_content;
-$sidebar = elgg_view('page/layouts/content/sidebar', $params);
+$context = elgg_extract('context', $vars, elgg_get_context());
 
-// allow page handlers to override the default header
-if (isset($vars['header'])) {
-	$vars['header_override'] = $vars['header'];
+$vars['title'] = elgg_extract('title', $vars, '');
+if (!$vars['title'] && $vars['title'] !== false) {
+	$vars['title'] = elgg_echo($context);
 }
-$header = elgg_view('page/layouts/content/header', $vars);
 
-// allow page handlers to override the default filter
-if (isset($vars['filter'])) {
-	$vars['filter_override'] = $vars['filter'];
+// 1.8 supported 'filter_override'
+if (isset($vars['filter_override'])) {
+	$vars['filter'] = $vars['filter_override'];
 }
-$filter = elgg_view('page/layouts/content/filter', $vars);
 
-// the all important content
-$content = elgg_extract('content', $vars, '');
+// register the default content filters
+if (!isset($vars['filter']) && elgg_is_logged_in() && $context) {
+	
+	$tab_order = elgg_get_plugin_setting('tab_order', 'river_addon');
+	if ($tab_order == 'friend_order') {
+		$all_priority = 400;
+		$friend_priority = 200;
+	} else if ($tab_order == 'mine_order'){
+		$all_priority = 500;
+		$friend_priority = 400;		
+	} else {
+		$all_priority = 200;
+		$friend_priority = 400;		
+	}
+	
+	$username = elgg_get_logged_in_user_entity()->username;
+	$filter_context = elgg_extract('filter_context', $vars, 'all');
 
-// optional footer for main content area
-$footer_content = elgg_extract('footer', $vars, '');
-$params = $vars;
-$params['content'] = $footer_content;
-$footer = elgg_view('page/layouts/content/footer', $params);
+	// generate a list of default tabs
+	$tabs = array(
+		'all' => array(
+			'text' => elgg_echo('all'),
+			'href' => (isset($vars['all_link'])) ? $vars['all_link'] : "$context/all",
+			'selected' => ($filter_context == 'all'),
+			'priority' => $all_priority,
+		),
+		'mine' => array(
+			'text' => elgg_echo('mine'),
+			'href' => (isset($vars['mine_link'])) ? $vars['mine_link'] : "$context/owner/$username",
+			'selected' => ($filter_context == 'mine'),
+			'priority' => 300,
+		),
+		'friend' => array(
+			'text' => elgg_echo('friends'),
+			'href' => (isset($vars['friend_link'])) ? $vars['friend_link'] : "$context/friends/$username",
+			'selected' => ($filter_context == 'friends'),
+			'priority' => $friend_priority,
+		),
+	);
 
-$body = $header . $filter . $content . $footer;
-
-$params = array(
-	'content' => $body,
-	'sidebar' => $sidebar,
-);
-if (isset($vars['class'])) {
-	$params['class'] = $vars['class'];
+	foreach ($tabs as $name => $tab) {
+		$tab['name'] = $name;
+		elgg_register_menu_item('filter', $tab);
+	}
 }
+
+$filter = elgg_view('page/layouts/elements/filter', $vars);
+$vars['content'] = $filter . $vars['content'];
 
 $plugin = elgg_get_plugin_from_id('river_addon');
 $selected = $plugin->three_column_context;
@@ -58,7 +82,7 @@ $selected = explode(",", $selected);
 $context = elgg_get_context();
 
 if (in_array($context, $selected)) {
-	echo elgg_view_layout('two_sidebar', $params);
+	echo elgg_view_layout('two_sidebar', $vars);
 } else {
-	echo elgg_view_layout('one_sidebar', $params);
+	echo elgg_view_layout('one_sidebar', $vars);
 }
