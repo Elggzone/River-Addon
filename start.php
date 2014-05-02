@@ -5,7 +5,7 @@
  *
  * @author Elggzone
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License v2
- * @copyright Copyright (c) 2013, Elggzone
+ * @copyright Copyright (c) 2014, Elggzone
  *
  * @link http://www.perjensen-online.dk/
  *
