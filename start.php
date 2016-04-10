@@ -10,7 +10,7 @@
  * @link http://www.perjensen-online.dk/
  *
  */
- 	  
+
 elgg_register_event_handler('init', 'system', 'river_addon_init');
 
 function river_addon_init() {
@@ -27,30 +27,32 @@ function river_addon_init() {
 	elgg_register_action("river_addon/admin/announcements", "$root/actions/settings.php", 'admin');
 	elgg_register_action("river_addon/admin/sidebar", "$root/actions/settings.php", 'admin');
 	elgg_register_action("river_addon/admin/general", "$root/actions/settings.php", 'admin');
-	
-  	$js = elgg_get_simplecache_url('js', 'river_addon/settings');
-	elgg_register_simplecache_view('js/river_addon/settings');
-	elgg_register_js('settings', $js);
-	elgg_load_js('settings');	
-	
+
 	if ($plugin->show_thewire == 'yes'){
-		elgg_register_action("river_addon/add", "$root/actions/add.php");		
-		elgg_extend_view('js/elgg', 'js/river_addon/update');
+		elgg_register_action("river_addon/add", "$root/actions/add.php");
+		elgg_require_js('river_addon/thewire_update');
 	}
-	
+
 	elgg_extend_view('css/elgg', 'river_addon/css');
 	elgg_extend_view('css/admin', 'river_addon/admin', 1);
 
-	elgg_register_js('jquery.sudoSlider.2.1.6.min', 'mod/river_addon/vendors/js/jquery.sudoSlider.2.1.6.min.js', 'footer');
-	elgg_load_js('jquery.sudoSlider.2.1.6.min');
-	elgg_register_js('multiselect.min', 'mod/river_addon/vendors/js/multiselect.min.js');
-	elgg_load_js('multiselect.min');
-		
+	elgg_define_js('jquery.sudoSlider', array(
+		'src' => 'mod/river_addon/vendors/js/jquery.sudoSlider.2.1.6.min.js',
+		'exports' => 'jQuery.fn.sudoslider',
+		'deps' => array('jquery'),
+	));
+
+	elgg_define_js('jquery.multiselect', array(
+		'src' => 'mod/river_addon/vendors/js/multiselect.min.js',
+		'exports' => 'jQuery.fn.multiselect',
+		'deps' => array('jquery'),
+	));
+
 	elgg_unregister_page_handler('activity', '_elgg_river_page_handler');
 	elgg_register_page_handler('activity', 'river_addon_river_page_handler');
-	
+
 	elgg_register_event_handler('pagesetup', 'system', 'river_addon_pagesetup', 1000);
-	
+
 	elgg_register_admin_menu_item('configure', 'river_addon', 'settings');
 
 	if (elgg_is_admin_logged_in()) {
@@ -71,9 +73,8 @@ function river_addon_pagesetup() {
 }
 
 function river_addon_river_page_handler($page) {
-	global $CONFIG;
-
 	$tab_order = elgg_get_plugin_setting('tab_order', 'river_addon');
+
 	if ($tab_order == 'friend_order') {
 		$param = 'friends';
 	} else if ($tab_order == 'mine_order'){
@@ -81,12 +82,15 @@ function river_addon_river_page_handler($page) {
 	} else {
 		$param = 'all';
 	}
-	
+
 	elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
+
+	$params = array();
 
 	// make a URL segment available in page handler script
 	$page_type = elgg_extract(0, $page, $param);
 	$page_type = preg_replace('[\W]', '', $page_type);
+
 	if ($page_type == 'owner') {
 		elgg_gatekeeper();
 		$page_username = elgg_extract(1, $page, '');
@@ -94,12 +98,12 @@ function river_addon_river_page_handler($page) {
 			$page_type = 'mine';
 		} else {
 			elgg_admin_gatekeeper();
-			set_input('subject_username', $page_username);
+			$params['subject_username'] = $page_username;
 		}
 	}
-	set_input('page_type', $page_type);
+	$params['page_type'] = $page_type;
 
-	require_once("{$CONFIG->path}pages/river.php");
+	echo elgg_view_resource('river', $params);
 	return true;
 }
 

@@ -3,6 +3,8 @@
  * River Addon tabs
  */
 
+elgg_require_js('river_addon/settings');
+
 $tab = get_input('tab', 'settings');
 
 echo "<div class=\"elggzone-options-panel\">";
@@ -27,7 +29,7 @@ echo "<div class=\"elggzone-options-panel\">";
 				)
 			)
 		));
-		
+
 		switch ($tab) {
 			case 'announcements':
 				echo elgg_view_form('river_addon/admin/announcements', array('class' => 'settings-optionspanel'));
