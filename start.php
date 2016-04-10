@@ -73,9 +73,8 @@ function river_addon_pagesetup() {
 }
 
 function river_addon_river_page_handler($page) {
-	global $CONFIG;
-
 	$tab_order = elgg_get_plugin_setting('tab_order', 'river_addon');
+
 	if ($tab_order == 'friend_order') {
 		$param = 'friends';
 	} else if ($tab_order == 'mine_order'){
@@ -86,9 +85,12 @@ function river_addon_river_page_handler($page) {
 
 	elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
 
+	$params = array();
+
 	// make a URL segment available in page handler script
 	$page_type = elgg_extract(0, $page, $param);
 	$page_type = preg_replace('[\W]', '', $page_type);
+
 	if ($page_type == 'owner') {
 		elgg_gatekeeper();
 		$page_username = elgg_extract(1, $page, '');
@@ -96,12 +98,12 @@ function river_addon_river_page_handler($page) {
 			$page_type = 'mine';
 		} else {
 			elgg_admin_gatekeeper();
-			set_input('subject_username', $page_username);
+			$params['subject_username'] = $page_username;
 		}
 	}
-	set_input('page_type', $page_type);
+	$params['page_type'] = $page_type;
 
-	require_once("{$CONFIG->path}pages/river.php");
+	echo elgg_view_resource('river', $params);
 	return true;
 }
 
